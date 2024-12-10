@@ -1,4 +1,4 @@
-import { IsBoolean, IsNotEmpty, IsString } from "class-validator"
+import { IsBoolean, IsNotEmpty, IsOptional, IsString } from "class-validator"
 
 export class CreateGyerekDto {
     @IsString()
@@ -14,5 +14,6 @@ export class CreateGyerekDto {
     jo: boolean
 
     @IsString()
+    @IsOptional()
     kerJatek: string
 }
