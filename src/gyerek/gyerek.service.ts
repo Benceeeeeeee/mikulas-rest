@@ -2,6 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { CreateGyerekDto } from './dto/create-gyerek.dto';
 import { UpdateGyerekDto } from './dto/update-gyerek.dto';
 import { PrismaService } from 'src/prisma.service';
+import { get } from 'https';
+import { BlobOptions } from 'buffer';
 
 @Injectable()
 export class GyerekService {
@@ -27,6 +29,10 @@ export class GyerekService {
         id: id
       }
     })
+  }
+
+  joGyerekek(){
+    return this.db.gyerek.findMany({where: {jo: true}});
   }
 
   update(id: number, updateGyerekDto: UpdateGyerekDto) {

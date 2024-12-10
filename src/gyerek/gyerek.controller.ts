@@ -17,6 +17,11 @@ export class GyerekController {
     return this.gyerekService.findAll();
   }
 
+  @Get("jo")
+  joGyerekek(){
+    return this.gyerekService.joGyerekek()
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.gyerekService.findOne(+id);
@@ -31,4 +36,6 @@ export class GyerekController {
   remove(@Param('id') id: string) {
     return this.gyerekService.remove(+id);
   }
+
+
 }
